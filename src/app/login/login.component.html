@@ -1,0 +1,23 @@
+<div class="form inputfield">
+    <input type="text" class="" id="MSG" value="msg" [(ngModel)]="message">
+    <!-- <input type="text" id="NAME" value="name" [(ngModel)]="name"> -->
+    
+    <input type="button" class="btn btn-primary"(click)="post()" value="ADD">
+  </div>
+<table class="table table-stripped container">
+    <thead>
+        <tr>
+            <th>S.NO</th>
+            <th class="col-5 msg">MSG</th>
+            <th class="col-3">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let msg of data;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{msg.message}}</td>
+            <td ><input  type="button" class="btn btn-success actionbutton" (click)="edit(msg.message,msg.id)" value="edit"> 
+            <input type="button" class="btn btn-danger" (click)="delete(msg.id)" value="delete"></td>
+        </tr>
+    </tbody>
+</table>
